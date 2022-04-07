@@ -3,22 +3,24 @@ package com.example.edinprojekt.controllers;
 import com.example.edinprojekt.enitites.ReviewPost;
 import com.example.edinprojekt.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/scarface")
+@Controller
+@RequestMapping("/")
 public class ReviewController {
 
     @Autowired
     ReviewService reviewService;
 
     @GetMapping
-    public List<ReviewPost> getReviewPostList(@RequestParam(required = false)String username) {
-        return reviewService.findAll(username)
-                .stream()
-                .toList();
+    public String getReviewPostList(@RequestParam(required = false)String username, Model model) {
+        List<ReviewPost> reviewPostList = reviewService.findAll(username);
+        model.addAttribute("reviewPostList", reviewPostList);
+        return "review";
     }
 
    @GetMapping("/{id}")
