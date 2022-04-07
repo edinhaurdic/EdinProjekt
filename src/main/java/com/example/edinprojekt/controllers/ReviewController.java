@@ -15,8 +15,10 @@ public class ReviewController {
     ReviewService reviewService;
 
     @GetMapping
-    public List<ReviewPost> getReviewPostList(){
-        return reviewService.findAll();
+    public List<ReviewPost> getReviewPostList(@RequestParam(required = false)String username) {
+        return reviewService.findAll(username)
+                .stream()
+                .toList();
     }
 
    @GetMapping("/{id}")

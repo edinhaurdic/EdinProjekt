@@ -8,16 +8,21 @@ public class ReviewPost {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+
     @Column(nullable = false, unique = true)
     private String title;
+
     @Column(nullable = false)
     private String review;
 
-    public ReviewPost( String title, String review) {
+    @ManyToOne
+    @JoinColumn(name="appuser_id")
+    private AppUser appUser;
 
+    public ReviewPost( String title, String review, AppUser appUser) {
         this.title = title;
         this.review = review;
-
+        this.appUser = appUser;
     }
 
     public ReviewPost() {
@@ -42,5 +47,17 @@ public class ReviewPost {
 
     public void setReview(String review) {
         this.review = review;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

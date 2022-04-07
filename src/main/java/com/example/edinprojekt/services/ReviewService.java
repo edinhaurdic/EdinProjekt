@@ -22,8 +22,12 @@ public class ReviewService {
     }
 
 
-    public List<ReviewPost> findAll() {
-        return reviewRepository.findAll();
+    public List<ReviewPost> findAll(String username) {
+        if(username == null){
+            return reviewRepository.findAll();
+        } else{
+          return reviewRepository.findByAppUser_Username(username);
+        }
     }
 
     public ReviewPost findById(int id) {
