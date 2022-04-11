@@ -1,3 +1,4 @@
+/*
 package com.example.edinprojekt.controllers;
 
 import com.example.edinprojekt.enitites.ReviewPost;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+
 @Controller
-@RequestMapping("/")
+@RequestMapping("/review")
 public class ReviewController {
 
     @Autowired
@@ -20,10 +23,17 @@ public class ReviewController {
     public String getReviewPostList(@RequestParam(required = false)String username, Model model) {
         List<ReviewPost> reviewPostList = reviewService.findAll(username);
         model.addAttribute("reviewPostList", reviewPostList);
-        return "review";
+        return "welcome";
+
     }
 
-   @GetMapping("/{id}")
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
+
+    @GetMapping("/{id}")
     public ReviewPost getReviewPostById(@PathVariable("id") int id){
         return reviewService.findById(id);
    }
@@ -47,3 +57,4 @@ public class ReviewController {
    }
 
 }
+*/
