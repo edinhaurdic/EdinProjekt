@@ -30,6 +30,15 @@ public class ReviewService {
         }
     }
 
+   public List<ReviewPost> findByTitle(String title) {
+        if(title == null){
+            return reviewRepository.findAll();
+        }else {
+            return reviewRepository.findByTitle(title);
+        }
+
+    }
+
     public ReviewPost findById(int id) {
         return reviewRepository.findById(id).orElseThrow();
     }

@@ -21,8 +21,9 @@ public class Welcome extends VerticalLayout {
     TextField text=new TextField();
 
     public Welcome(ReviewRepository reviewRepository) {
-        RouterLink film1= new RouterLink("film1", FilmView.class);
-        RouterLink film2= new RouterLink("film2", FilmView.class);
+
+        RouterLink film1= new RouterLink("SCARFACE", ScarFace.class);
+        RouterLink film2= new RouterLink("Babblarna", Babblarna.class);
         film1.setQueryParameters(new QueryParameters(Map.of("FilmID", List.of("1"))));
         film2.setQueryParameters(new QueryParameters(Map.of("FilmID", List.of("2"))));
         this.reviewRepository = reviewRepository;

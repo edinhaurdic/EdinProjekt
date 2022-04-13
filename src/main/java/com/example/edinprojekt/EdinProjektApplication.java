@@ -32,7 +32,7 @@ public class EdinProjektApplication implements CommandLineRunner {
         appUserRepository.saveAll(List.of(Edin, Alice));
 
         ReviewPost reviewPost = new ReviewPost("Scarface", "This movie is great", Edin);
-        ReviewPost reviewPost2 = new ReviewPost("Babblarna", "This movie is for children", Alice);
+        ReviewPost reviewPost2 = new ReviewPost("Babblarna", "This movie is a instant classic", Alice);
         reviewRepository.saveAll(List.of(reviewPost, reviewPost2));
     }
 }
