@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@Route("/welcome")
+@Route("")
 public class Welcome extends VerticalLayout {
 
 
@@ -21,6 +21,7 @@ public class Welcome extends VerticalLayout {
     TextField text=new TextField();
 
     public Welcome(ReviewRepository reviewRepository) {
+        setAlignItems(Alignment.CENTER);
 
         RouterLink film1= new RouterLink("SCARFACE", ScarFace.class);
         RouterLink film2= new RouterLink("Babblarna", Babblarna.class);

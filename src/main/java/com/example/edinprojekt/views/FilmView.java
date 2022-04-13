@@ -1,3 +1,4 @@
+/*
 package com.example.edinprojekt.views;
 
 import com.vaadin.flow.component.html.H1;
@@ -15,7 +16,7 @@ public class FilmView extends VerticalLayout implements BeforeEnterObserver {
     public FilmView() {
 
 
-        add(new H1("Filmview"));
+
 
 
 
@@ -28,3 +29,4 @@ public class FilmView extends VerticalLayout implements BeforeEnterObserver {
         add(new Paragraph("FilmId"+FilmId));
     }
 }
+*/

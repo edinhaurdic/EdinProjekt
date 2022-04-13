@@ -24,6 +24,7 @@ public class Babblarna extends VerticalLayout {
             H2 reviewTitle = new H2(reviewPost.getTitle());
             Paragraph review = new Paragraph(reviewPost.getReview());
 
+
             add(reviewTitle,review);
         });
     }
