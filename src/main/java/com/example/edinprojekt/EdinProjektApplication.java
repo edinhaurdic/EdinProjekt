@@ -29,10 +29,13 @@ public class EdinProjektApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         AppUser Edin= new AppUser("Edin");
         AppUser Alice = new AppUser("Alice");
+       // AppUser Gustav= new AppUser("Gustav");
         appUserRepository.saveAll(List.of(Edin, Alice));
 
         ReviewPost reviewPost = new ReviewPost("Scarface", "This movie is great", Edin);
-        ReviewPost reviewPost2 = new ReviewPost("Babblarna", "This movie is a instant classic", Alice);
+        ReviewPost reviewPost2 = new ReviewPost("Scarface", "Too much drugs and violence", Alice);
+        ReviewPost reviewPost3 = new ReviewPost("Babblarna", "This movie is a instant classic", Alice);
+        ReviewPost reviewPost4 = new ReviewPost("Babblarna", "Great movie for babys", Edin);
         reviewRepository.saveAll(List.of(reviewPost, reviewPost2));
     }
 }
