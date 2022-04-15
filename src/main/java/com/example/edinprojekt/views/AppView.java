@@ -18,18 +18,20 @@ public class AppView extends AppLayout {
         HorizontalLayout navbarLayout = new HorizontalLayout();
         H1 navbarTitle= new H1("Welcome to FilmReview");
         Button loginButton= new Button("Login", e-> Notification.show("Coming soon..."));
+        RouterLink homeButton = new RouterLink("Home", Welcome.class);
         loginButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        navbarLayout.add(new DrawerToggle(), navbarTitle, loginButton);
+        navbarLayout.add(new DrawerToggle(), navbarTitle, loginButton, homeButton);
 
         navbarLayout.setWidthFull();
         navbarLayout.setMargin(true);
         navbarLayout.setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN);
-        navbarLayout.setAlignItems(FlexComponent.Alignment.CENTER);
+        navbarLayout.setAlignItems(FlexComponent.Alignment.AUTO);
 
         addToNavbar(navbarLayout);
 
         RouterLink reviewViewLink = new RouterLink("View reviews", ReviewView.class);
         RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReviewView.class);
+
 
         addToDrawer(new VerticalLayout(manageReviewLink, reviewViewLink));
 

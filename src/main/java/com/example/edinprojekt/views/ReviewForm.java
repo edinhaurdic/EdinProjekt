@@ -23,7 +23,7 @@ public class ReviewForm extends FormLayout{
     public ReviewForm (ReviewService reviewService, ManageReviewView manageReviewView){
         this.reviewService = reviewService;
         this.manageReviewView = manageReviewView;
-        setVisible(true);
+        setVisible(false);
         binder.bindInstanceFields(this);
 
         saveButton.addClickListener(evt-> onSave());
@@ -40,15 +40,16 @@ public class ReviewForm extends FormLayout{
             reviewService.createReview(reviewPost);
         }
         setReviewPost(null);
-
+        manageReviewView.updateItems();
 
     }
 
     public void setReviewPost(ReviewPost reviewPost){
         if(reviewPost != null){
             binder.setBean(reviewPost);
+            setVisible(true);
         }else {
-            setVisible(false);
+            setVisible(true);
         }
     }
 }

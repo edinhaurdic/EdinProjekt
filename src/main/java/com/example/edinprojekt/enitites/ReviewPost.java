@@ -1,6 +1,7 @@
 package com.example.edinprojekt.enitites;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class ReviewPost {
@@ -10,9 +11,11 @@ public class ReviewPost {
     private int id;
 
     @Column(nullable = false, unique = false)
+    @NotBlank
     private String title;
 
     @Column(nullable = false)
+    @NotBlank
     private String review;
 
     @ManyToOne

@@ -23,7 +23,8 @@ public class AppUser {
     @JsonIgnore
     private Set<ReviewPost> reviewPost;
 
-    public AppUser(String username) {
+    public AppUser(String username, String password) {
+        this.password = password;
         this.username = username;
     }
 
@@ -50,9 +51,6 @@ public class AppUser {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public Set<ReviewPost> getReviewPost() {
         return reviewPost;

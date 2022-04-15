@@ -7,8 +7,10 @@ import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @Route(value = "/reviewView", layout = AppView.class)
+@AnonymousAllowed
 public class ReviewView extends VerticalLayout {
 
     ReviewService reviewService;
