@@ -10,7 +10,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
+import javax.annotation.security.PermitAll;
+
 @Route(value="/scarface", layout=AppView.class)
+@PermitAll
 public class Scarface extends VerticalLayout {
 
     ReviewService reviewService;

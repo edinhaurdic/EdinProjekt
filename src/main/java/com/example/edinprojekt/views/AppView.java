@@ -1,7 +1,10 @@
 package com.example.edinprojekt.views;
 
+import com.example.edinprojekt.security.PrincipalUtils;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.H1;
@@ -17,15 +20,26 @@ public class AppView extends AppLayout {
 
         HorizontalLayout navbarLayout = new HorizontalLayout();
         H1 navbarTitle= new H1("Welcome to FilmReview");
-        Button loginButton= new Button("Login", e-> Notification.show("Coming soon..."));
-        RouterLink homeButton = new RouterLink("Home", Welcome.class);
-        loginButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        navbarLayout.add(new DrawerToggle(), navbarTitle, loginButton, homeButton);
+        Button homeButton = new Button("Home");
+        navbarLayout.add(new DrawerToggle(), navbarTitle, homeButton);
+
+        Button loginButton= new Button("Login", e-> UI.getCurrent().navigate(LoginView.class));
+        Button logOutButton = new Button("Logout",e-> PrincipalUtils.logout());
+        homeButton.addClickListener(e-> UI.getCurrent().navigate(Welcome.class));
+        homeButton.addThemeVariants(ButtonVariant.MATERIAL_CONTAINED );
+        loginButton.addThemeVariants(ButtonVariant.LUMO_ERROR);
+        Avatar addAvatar = new Avatar("EDIN");
+
+        navbarLayout.add(PrincipalUtils.isAuthenticated() ? logOutButton : loginButton);
+
+        if(PrincipalUtils.isAuthenticated())
+            Notification.show(PrincipalUtils.getName());
+
 
         navbarLayout.setWidthFull();
         navbarLayout.setMargin(true);
         navbarLayout.setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN);
-        navbarLayout.setAlignItems(FlexComponent.Alignment.AUTO);
+        navbarLayout.setAlignItems(FlexComponent.Alignment.CENTER);
 
         addToNavbar(navbarLayout);
 

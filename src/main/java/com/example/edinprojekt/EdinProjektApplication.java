@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -20,6 +21,9 @@ public class EdinProjektApplication implements CommandLineRunner {
     @Autowired
     ReviewRepository reviewRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public static void main(String[] args) {
         SpringApplication.run(EdinProjektApplication.class, args);
     }
@@ -27,8 +31,8 @@ public class EdinProjektApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        AppUser Edin= new AppUser("Edin", "edin");
-        AppUser Alice = new AppUser("Alice", "alice");
+        AppUser Edin= new AppUser("Edin",passwordEncoder.encode("edin"));
+        AppUser Alice = new AppUser("Alice",passwordEncoder.encode( "alice"));
        // AppUser Gustav= new AppUser("Gustav");
         appUserRepository.saveAll(List.of(Edin, Alice));
 
