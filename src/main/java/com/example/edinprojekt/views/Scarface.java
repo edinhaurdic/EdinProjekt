@@ -21,12 +21,11 @@ public class Scarface extends VerticalLayout {
     public Scarface(ReviewService reviewService) {
 
         this.reviewService = reviewService;
-       // RouterLink reviewViewLink = new RouterLink("View reviews", ScarfaceReviewView.class);
-        H1 pageTitle = new H1("Review for Scarface");
+        RouterLink reviewViewLink = new RouterLink("View reviews", ReviewView.class);
         renderReviewPost();
 
-      //  RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReviewView.class);
-       // add(new VerticalLayout(manageReviewLink));
+        RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReviewViewScarface.class);
+
 
     }
 

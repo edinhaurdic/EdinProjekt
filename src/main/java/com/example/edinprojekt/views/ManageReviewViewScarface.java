@@ -16,15 +16,15 @@ import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.PermitAll;
 
-@Route(value= "/managereviews", layout = AppView.class)
+@Route(value= "/managereviewsScarface", layout = AppView.class)
 @PermitAll
-public class ManageReviewView extends VerticalLayout {
+public class ManageReviewViewScarface extends VerticalLayout {
 
     ReviewService reviewService;
     Grid<ReviewPost> grid= new Grid<>(ReviewPost.class, false);
     ReviewForm reviewForm;
 
-    public ManageReviewView(ReviewService reviewService) {
+    public ManageReviewViewScarface(ReviewService reviewService) {
         this.reviewService = reviewService;
         reviewForm = new ReviewForm(reviewService, this);
         setAlignItems(Alignment.CENTER);
@@ -51,7 +51,6 @@ public class ManageReviewView extends VerticalLayout {
         grid.addColumn(ReviewPost::getId).setHeader("Id").setSortable(true);
         grid.addColumn(ReviewPost::getTitle).setHeader("Title of Movie").setSortable(true);
         grid.addColumn(ReviewPost::getReview).setHeader("Review of Movie").setSortable(true);
-        // grid.addColumn(reviewPost -> reviewPost.getAppUser().getUsername()).setHeader("Author").setSortable(true);
         grid.asSingleSelect().addValueChangeListener(evt->{
             reviewForm.setReviewPost(evt.getValue());
         });

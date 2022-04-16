@@ -15,12 +15,12 @@ public class ReviewForm extends FormLayout{
     TextArea review = new TextArea("Review of Movie");
     Button saveButton = new Button("Save review");
     ReviewService reviewService;
-    ManageReviewView manageReviewView;
+    ManageReviewViewScarface manageReviewView;
 
 
     Binder<ReviewPost> binder= new BeanValidationBinder<>(ReviewPost.class);
 
-    public ReviewForm (ReviewService reviewService, ManageReviewView manageReviewView){
+    public ReviewForm (ReviewService reviewService, ManageReviewViewScarface manageReviewView){
         this.reviewService = reviewService;
         this.manageReviewView = manageReviewView;
         setVisible(false);
