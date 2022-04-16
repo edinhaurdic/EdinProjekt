@@ -4,7 +4,6 @@ import com.example.edinprojekt.security.PrincipalUtils;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
-import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.H1;
@@ -25,7 +24,6 @@ public class AppView extends AppLayout {
         navbarTitle.getStyle().set("font-weight", "bolder");
         navbarTitle.getStyle().set("color", "red");
         navbarTitle.getStyle().set("font-size", "60px");
-        //Button homeButton = new Button("Home");
         navbarLayout.add(new DrawerToggle(), navbarTitle);
 
 
@@ -49,7 +47,7 @@ public class AppView extends AppLayout {
 
 
         RouterLink reviewViewLink = new RouterLink("View reviews", ReviewView.class);
-        RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReviewViewScarface.class);
+        RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReview.class);
         RouterLink homeViewLink = new RouterLink("Home", Welcome.class);
 
         addToDrawer(new VerticalLayout(manageReviewLink, reviewViewLink, homeViewLink));

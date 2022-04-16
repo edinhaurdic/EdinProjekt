@@ -16,15 +16,15 @@ import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.PermitAll;
 
-@Route(value= "/managereviewsScarface", layout = AppView.class)
+@Route(value= "/managereviews", layout = AppView.class)
 @PermitAll
-public class ManageReviewViewScarface extends VerticalLayout {
+public class ManageReview extends VerticalLayout {
 
     ReviewService reviewService;
     Grid<ReviewPost> grid= new Grid<>(ReviewPost.class, false);
     ReviewForm reviewForm;
 
-    public ManageReviewViewScarface(ReviewService reviewService) {
+    public ManageReview(ReviewService reviewService) {
         this.reviewService = reviewService;
         reviewForm = new ReviewForm(reviewService, this);
         setAlignItems(Alignment.CENTER);

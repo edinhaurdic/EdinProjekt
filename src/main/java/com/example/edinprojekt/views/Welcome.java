@@ -25,8 +25,7 @@ public class Welcome extends VerticalLayout {
         Button scarface = new Button("Scarface", e -> UI.getCurrent().navigate(Scarface.class));
         Button babblarna = new Button("Babblarna", e-> UI.getCurrent().navigate(Babblarna.class));
         H1 pageTitle = new H1("Here is a list of our movies to review.");
-        //film1.setQueryParameters(new QueryParameters(Map.of("FilmID", List.of("1"))));
-     //   film2.setQueryParameters(new QueryParameters(Map.of("FilmID", List.of("babblarna"))));
+        pageTitle.getStyle().set("color", "blue");
         this.reviewRepository = reviewRepository;
 
         add(pageTitle, scarface, babblarna);

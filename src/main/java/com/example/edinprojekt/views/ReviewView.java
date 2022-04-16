@@ -1,10 +1,7 @@
 package com.example.edinprojekt.views;
 
 import com.example.edinprojekt.services.ReviewService;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.Hr;
-import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
@@ -22,8 +19,13 @@ public class ReviewView extends VerticalLayout {
         reviewService.findAll().forEach(reviewPost->{
             H2 reviewTitle = new H2(reviewPost.getTitle());
             Paragraph review=new Paragraph(reviewPost.getReview());
+            Paragraph writer = new Paragraph("Written by: ");
+            Span author = new Span(reviewPost.getAppUser().getUsername());
+            author.getStyle().set("font-weight", "bold");
+            author.getStyle().set("color", "blue");
+            writer.add(author);
 
-            add(reviewTitle,review,new Hr());
+            add(reviewTitle,review,writer,new Hr());
         });
 
 
