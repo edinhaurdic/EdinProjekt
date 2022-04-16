@@ -1,7 +1,6 @@
 package com.example.edinprojekt.views;
 import com.example.edinprojekt.services.ReviewService;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Paragraph;
@@ -24,7 +23,7 @@ public class Scarface extends VerticalLayout {
         RouterLink reviewViewLink = new RouterLink("View reviews", ReviewView.class);
         renderReviewPost();
 
-        RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReviewViewScarface.class);
+        RouterLink manageReviewLink = new RouterLink("Manage reviews", ManageReview.class);
 
 
     }
